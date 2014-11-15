@@ -2,6 +2,7 @@
 using Abot.Crawler;
 using Abot.Poco;
 using System;
+using Abot.Core;
 
 namespace Abot.Demo
 {
@@ -41,7 +42,10 @@ namespace Abot.Demo
 
         private static IWebCrawler GetDefaultWebCrawler()
         {
-            return new PoliteWebCrawler();
+            var config = WebCrawler.GetCrawlConfigurationFromConfigFile ();
+            var pageRequester = new PageRequesterWithCookies (config);
+            var crawler = new PoliteWebCrawler(config, null, null, null, pageRequester, null, null, null, null);
+            return crawler;
         }
 
         private static IWebCrawler GetManuallyConfiguredWebCrawler()
