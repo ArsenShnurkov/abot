@@ -1,6 +1,7 @@
 ﻿using log4net;
 using Robots;
 using System;
+using Robots;
 
 namespace Abot.Core
 {
