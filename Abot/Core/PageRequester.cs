@@ -3,6 +3,7 @@ using log4net;
 using System;
 using System.Net;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace Abot.Core
 {
@@ -135,7 +136,7 @@ namespace Abot.Core
 
     public class PageRequesterWithCookies : PageRequester
     {
-        readonly CookieContainer container = new CookieContainer ();
+        public readonly CookieContainer container = new CookieContainer ();
 
         protected override HttpWebRequest BuildRequestObject (Uri uri)
         {
